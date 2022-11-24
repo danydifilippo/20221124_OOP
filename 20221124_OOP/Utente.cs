@@ -22,17 +22,17 @@ namespace _20221124_OOP
             set { _logged = value; }
         }
 
-        private static DateTimeOffset _dataEntrata;
+        private static DateTime _dataEntrata;
 
-        public static DateTimeOffset DataEntrata
+        public static DateTime DataEntrata
         {
             get { return _dataEntrata; }
             set { _dataEntrata = value; }
         }
 
-        private static DateTimeOffset _dataUscita;
+        private static DateTime _dataUscita;
 
-        public static DateTimeOffset DataUscita
+        public static DateTime DataUscita
         {
             get { return _dataUscita; }
             set { _dataUscita = value; }
@@ -102,6 +102,7 @@ namespace _20221124_OOP
                 Console.WriteLine("Hai effettuato il login con successo");
                 _logged = true;
                 _dataEntrata = DateTime.Now;
+                ListAccessi.Add(_dataEntrata);
                 MenuIniziale();
             }
             else
@@ -139,7 +140,20 @@ namespace _20221124_OOP
 
         private static void ListaAccessi()
         {
-            List<string> ListAccessi = new List<string>();
+            if (ListAccessi.Count == 0)
+            {
+                Console.WriteLine("Non ci sono accessi registrati!");
+                MenuIniziale();
+            }
+            else
+            {
+                foreach (DateTime item in ListAccessi)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+
+            MenuIniziale();
 
         }
 
