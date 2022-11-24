@@ -10,6 +10,8 @@ namespace _20221124_OOP
     {
         static void Main(string[] args)
         {
+            Utente.MenuIniziale();
+            Console.ReadLine();
         }
     }
 }
